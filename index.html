@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vrettos Konstantinos | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     * {
       box-sizing: border-box;
@@ -18,17 +16,18 @@
       font-family: 'Roboto', sans-serif;
       background-color: #f5f5f5;
       color: #111;
+      transition: all 0.3s ease-in-out;
     }
 
     header {
       background: linear-gradient(135deg, #143d5c, #1e68a0);
       color: white;
-      padding: 40px 20px;
+      padding: 40px 20px 20px;
       text-align: center;
       position: relative;
     }
 
-    header .logo {
+    .logo {
       font-size: 48px;
       font-weight: bold;
       position: absolute;
@@ -64,6 +63,30 @@
       margin-top: 8px;
     }
 
+    .nav-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .nav-tabs button {
+      background-color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #1e68a0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: background-color 0.3s;
+    }
+
+    .nav-tabs button:hover {
+      background-color: #1e68a0;
+      color: white;
+    }
+
     main {
       max-width: 900px;
       margin: 40px auto;
@@ -71,10 +94,12 @@
       background-color: white;
       border-radius: 8px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: all 0.3s ease-in-out;
     }
 
     section {
       margin-bottom: 30px;
+      animation: fadeIn 0.5s ease-in-out;
     }
 
     h2 {
@@ -82,6 +107,10 @@
       padding-bottom: 5px;
       margin-bottom: 15px;
       color: #1e68a0;
+    }
+
+    h3 {
+      margin-top: 10px;
     }
 
     a {
@@ -98,51 +127,244 @@
       padding: 20px;
       background-color: #1e68a0;
       color: white;
+      margin-top: 40px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .lang-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: white;
+      color: #1e68a0;
+      border: 2px solid #1e68a0;
+      border-radius: 20px;
+      padding: 5px 15px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .lang-toggle:hover {
+      background-color: #1e68a0;
+      color: white;
     }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">VK</div>
-    <img src="1662906445267.jpg" alt="Vrettos Konstantinos">
+    <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
+    <img src="1662906445267.jpg" alt="Vrettos Konstantinos" />
     <h1>Vrettos Konstantinos</h1>
-    <p>Sales & Training Specialist | Customer Experience | Team Leadership</p>
+    <p id="title">Sales & Training Specialist | Customer Experience | Team Leadership</p>
+    <div class="nav-tabs">
+      <button onclick="showTab('home')" id="homeTab">Home</button>
+      <button onclick="showTab('experience')" id="expTab">Προϋπηρεσία</button>
+    </div>
   </header>
 
   <main>
-    <section>
-      <h2>About Me</h2>
-      <p>
-        Proactive and adaptable professional with over 6 years of experience in sales, customer care,
-        and training roles across the telecom and energy sectors. Proven ability to lead teams, coach
-        and develop new talent, and deliver exceptional service in fast-paced, high-pressure environments.
-      </p>
-    </section>
+    <!-- Home Content -->
+    <div id="homeTabContent">
+      <section>
+        <h2 id="aboutTitle">About Me</h2>
+        <p id="aboutText">
+          Proactive and adaptable professional with over 6 years of experience in sales, customer care,
+          and training roles across the telecom and energy sectors. Proven ability to lead teams, coach
+          and develop new talent, and deliver exceptional service in fast-paced, high-pressure environments.
+        </p>
+      </section>
 
-    <section>
-      <h2>Languages</h2>
-      <p>Greek (Native), English (Fluent - C1)</p>
-    </section>
+      <section>
+        <h2 id="langTitle">Languages</h2>
+        <p id="langText">Greek (Native), English (Fluent - C1)</p>
+      </section>
 
-    <section>
-      <h2>Contact</h2>
-      <p><strong>Phone:</strong> +30 693 8752 606</p>
-      <p><strong>Email:</strong> kvrettos@yahoo.com</p>
-      <p><strong>Location:</strong> Eratonimou 25, Eretria, Greece</p>
-    </section>
+      <section>
+        <h2 id="contactTitle">Contact</h2>
+        <p><strong>Phone:</strong> +30 693 8752 606</p>
+        <p><strong>Email:</strong> kvrettos@yahoo.com</p>
+        <p><strong>Location:</strong> Ερατονύμου 25, Ερέτρια, Ελλάδα</p>
+      </section>
 
-    <section>
-      <h2>Social Profiles</h2>
-      <p>
-        <a href="https://www.linkedin.com/in/konstantinos-vrettos-525702191" target="_blank">LinkedIn</a>
-        |
-        <a href="#">Facebook</a>
-      </p>
-    </section>
+      <section>
+        <h2 id="socialTitle">Social Profiles</h2>
+        <p>
+          <a href="https://www.linkedin.com/in/konstantinos-vrettos-525702191" target="_blank">LinkedIn</a> |
+          <a href="#">Facebook</a>
+        </p>
+      </section>
+    </div>
+
+    <!-- Experience Greek -->
+    <div id="experienceTabContentGR" style="display:none;">
+      <section>
+        <h2 id="expTitleGR">Προϋπηρεσία</h2>
+
+        <section>
+  <h3 style="color:#1e68a0;">Watt & Volt A.E., Μαρούσι, Ελλάδα</h3>
+  <p><strong>Ρόλος:</strong> Sales Trainer & Quality Administrator</p>
+  <p><strong>Διάρκεια:</strong> Μάρ 2020 – Σεπ 2020</p>
+</section>
+
+<section>
+  <h3 style="color:#1e68a0;">Volterra A.E., Μαρούσι, Ελλάδα</h3>
+  <p><strong>Ρόλος:</strong> Customer Care Representative</p>
+  <p><strong>Διάρκεια:</strong> Μάρ 2020 – Σεπ 2020</p>
+</section>
+
+<section>
+  <h3 style="color:#1e68a0;">Wind Telecom (μέσω Mediatel), Αθήνα, Ελλάδα</h3>
+  <p><strong>Ρόλος:</strong> Tech Coach & Team Leader</p>
+  <p><strong>Περιγραφή:</strong></p>
+  <ul>
+    <li>Παρείχα εκπαίδευση onboarding και soft skills σε νέους υπαλλήλους (2+ ομάδες το μήνα).</li>
+    <li>Πραγματοποιούσα whisper coaching και ατομικές συνεδρίες υποστήριξης και κινητοποίησης των agents.</li>
+    <li>Αξιολογούσα την απόδοση των agents εβδομαδιαία και έδινα χρήσιμα feedback.</li>
+    <li>Διαχειριζόμουν εισερχόμενες και εξερχόμενες κλήσεις, νέα συμβόλαια, ticketing και emails πελατών.</li>
+    <li>Υποστήριζα και έλυνα τεχνικά θέματα πρώτου επιπέδου για οικιακούς και επαγγελματίες πελάτες.</li>
+    <li>Προήχθηκα σε Coach και αργότερα σε Team Leader, διαχειριζόμενος απομακρυσμένες ομάδες που αντιπροσώπευαν το 40% του εργατικού δυναμικού.</li>
+  </ul>
+</section>
+
+<section>
+  <h3 style="color:#1e68a0;">Forthnet – Nova (μέσω Mediatel), Αθήνα, Ελλάδα</h3>
+  <p><strong>Ρόλος:</strong> Sales Representative & Sub-Trainer</p>
+  <p><strong>Διάρκεια:</strong> Μάιος 2017 – Μάρτιος 2020</p>
+  <ul>
+    <li>Επέτυχα σταθερά τους στόχους πωλήσεων και καθοδηγούσα νέους agents.</li>
+    <li>Προήχθηκα σε Coach και Sub-Trainer, αναλαμβάνοντας την εκπαίδευση onboarding και σεμινάρια προϊόντων.</li>
+  </ul>
+</section>
+
+<section>
+  <h3 style="color:#1e68a0;">Φυσικοθεραπεία (Ανεξάρτητο)</h3>
+  <p><strong>Ίδρυμα:</strong> A.M.C. – Akmi Metropolitan College, Ελλάδα (σε συνεργασία με Queen Margaret University, UK)</p>
+  <p><strong>Διάρκεια:</strong> 2013 – 2015 (μη ολοκληρωμένο)</p>
+  <p><strong>Σχετικά μαθήματα:</strong> Διαχείριση στρες, Ψυχολογικές διαστάσεις του πόνου, Επικοινωνία με ασθενείς</p>
+</section>
+    </div>
+
+    <!-- Experience English -->
+    <div id="experienceTabContentEN" style="display:none;">
+      <section>
+        <h2 id="expTitleEN">Experience</h2>
+
+        <section>
+  <h3 style="color:#1e68a0;">Watt & Volt S.A., Maroussi, Greece</h3>
+  <p><strong>Role:</strong> Sales Trainer & Quality Administrator</p>
+  <p><strong>Duration:</strong> Mar 2020 – Sep 2020</p>
+</section>
+
+<section>
+  <h3 style="color:#1e68a0;">Volterra S.A., Maroussi, Greece</h3>
+  <p><strong>Role:</strong> Customer Care Representative</p>
+  <p><strong>Duration:</strong> Mar 2020 – Sep 2020</p>
+</section>
+
+<section>
+  <h3 style="color:#1e68a0;">Wind Telecom (via Mediatel), Athens, Greece</h3>
+  <p><strong>Role:</strong> Tech Coach & Team Leader</p>
+  <p><strong>Description:</strong></p>
+  <ul>
+    <li>Delivered onboarding and soft skills training to new recruits (2+ groups/month).</li>
+    <li>Conducted whisper coaching and 1:1 sessions to support and motivate agents.</li>
+    <li>Assessed agent performance weekly and provided actionable feedback.</li>
+    <li>Handled inbound/outbound calls, managed new contracts, ticketing, and customer emails.</li>
+    <li>Supported and resolved 1st-level technical issues for residential and business customers.</li>
+    <li>Promoted to Coach, then Team Leader managing remote teams (40% of workforce).</li>
+  </ul>
+</section>
+
+<section>
+  <h3 style="color:#1e68a0;">Forthnet – Nova (via Mediatel), Athens, Greece</h3>
+  <p><strong>Role:</strong> Sales Representative & Sub-Trainer</p>
+  <p><strong>Duration:</strong> May 2017 – Mar 2020</p>
+  <ul>
+    <li>Achieved consistent sales targets and mentored new agents.</li>
+    <li>Promoted to Coach and Sub-Trainer, leading onboarding and product workshops.</li>
+  </ul>
+</section>
+
+<section>
+  <h3 style="color:#1e68a0;">Physiotherapy (Incomplete)</h3>
+  <p><strong>Institution:</strong> A.M.C. – Akmi Metropolitan College, Greece (in partnership with Queen Margaret University, UK)</p>
+  <p><strong>Duration:</strong> 2013 – 2015 (Incomplete)</p>
+  <p><strong>Relevant coursework:</strong> Stress Management, Psychological Dimensions of Pain, Communication with Patients</p>
+</section>
+        <!-- Add more experience if needed -->
+      </section>
+    </div>
   </main>
 
   <footer>
-    &copy; 2025 Vrettos Konstantinos. All rights reserved.
+    &copy; 2025 Konstantinos Vrettos
   </footer>
+
+  <script>
+    let lang = "el";
+    let currentTab = "home";
+
+    function showTab(tab) {
+      currentTab = tab;
+
+      document.getElementById("homeTabContent").style.display = "none";
+      document.getElementById("experienceTabContentGR").style.display = "none";
+      document.getElementById("experienceTabContentEN").style.display = "none";
+
+      if (tab === "home") {
+        document.getElementById("homeTabContent").style.display = "block";
+      } else if (tab === "experience") {
+        if (lang === "el") {
+          document.getElementById("experienceTabContentGR").style.display = "block";
+        } else {
+          document.getElementById("experienceTabContentEN").style.display = "block";
+        }
+      }
+    }
+
+    function toggleLanguage() {
+      lang = lang === "el" ? "en" : "el";
+      document.querySelector(".lang-toggle").innerText = lang === "el" ? "EN" : "EL";
+
+      // Change tab texts
+      document.getElementById("expTab").innerText = lang === "el" ? "Προϋπηρεσία" : "Experience";
+      document.getElementById("homeTab").innerText = lang === "el" ? "Αρχική" : "Home";
+
+      // Change header titles & content
+      document.getElementById("title").innerText =
+        lang === "el"
+          ? "Εκπαίδευση Πωλήσεων | Εξυπηρέτηση Πελατών | Ηγεσία Ομάδας"
+          : "Sales & Training Specialist | Customer Experience | Team Leadership";
+
+      document.getElementById("aboutTitle").innerText = lang === "el" ? "Σχετικά με Εμένα" : "About Me";
+      document.getElementById("aboutText").innerText = lang === "el"
+        ? "Δραστήριος επαγγελματίας με πάνω από 6 χρόνια εμπειρίας σε πωλήσεις, εξυπηρέτηση πελατών και εκπαίδευση, κυρίως στους τομείς τηλεπικοινωνιών και ενέργειας."
+        : "Proactive and adaptable professional with over 6 years of experience in sales, customer care, and training roles across the telecom and energy sectors.";
+
+      document.getElementById("langTitle").innerText = lang === "el" ? "Γλώσσες" : "Languages";
+      document.getElementById("langText").innerText = lang === "el" ? "Ελληνικά (Μητρική), Αγγλικά (Άπταιστα - C1)" : "Greek (Native), English (Fluent - C1)";
+      document.getElementById("contactTitle").innerText = lang === "el" ? "Επικοινωνία" : "Contact";
+      document.getElementById("socialTitle").innerText = lang === "el" ? "Κοινωνικά Δίκτυα" : "Social Profiles";
+
+      // Also update experience section titles
+      document.getElementById("expTitleGR").innerText = lang === "el" ? "Προϋπηρεσία" : "Experience";
+      document.getElementById("expTitleEN").innerText = lang === "en" ? "Experience" : "Προϋπηρεσία";
+
+      // Refresh content according to current tab and new language
+      if (currentTab === "experience") {
+        showTab("experience");
+      }
+    }
+
+    window.onload = () => {
+      showTab("home");
+    };
+  </script>
 </body>
 </html>
